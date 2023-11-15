@@ -17,10 +17,12 @@ public class Order {
         Order order = new Order();
         order.setVisitDay();
         order.setMenuList();
+        Benefits.show_benefits(order.visit_day, order.menuList);
     }
 
     private void setVisitDay() {
         int day = 0;
+        OutputView.printVisitDay();
         while (true) {
             try {
                 day = validateDay(InputView.inputVisitDay());
@@ -46,7 +48,8 @@ public class Order {
     }
 
     private void setMenuList() {
-        Map<Menu, Integer> menu = new LinkedHashMap<>();
+        Map<Menu, Integer> menu;
+        OutputView.printInputOrder();
         while (true) {
             try {
                 menu = validateOrder(InputView.inputOrder());
@@ -94,7 +97,7 @@ public class Order {
         return Integer.parseInt(count);
     }
 
-    public Menu getMenuVar(String name) {
+    public static Menu getMenuVar(String name) {
         for (Menu menu : Menu.values()) {
             if (Objects.equals(menu.getName(), name)) {
                 return menu;

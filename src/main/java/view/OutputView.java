@@ -4,9 +4,11 @@ import static view.StringList.*;
 
 import domain.Badge;
 import domain.Menu;
+import java.text.DecimalFormat;
 import java.util.Map;
 
 public class OutputView {
+    static DecimalFormat decFormat = new DecimalFormat("###,###");
 
     public static void printVisitDay() {
         System.out.println(HELLO);
@@ -34,14 +36,14 @@ public class OutputView {
         printPreview();
         System.out.println(ORDER_MENU);
         menuList.forEach((menu, cnt) -> {
-            System.out.println(menu.getName() + " " + cnt + "개");
+            System.out.println(menu.getName() + " " + decFormat.format(cnt) + "개");
         });
         System.out.println();
     }
 
     public static void printCost(int cost) {
         System.out.println(BEFORE_SALE_COST);
-        System.out.println(cost + "원");
+        System.out.println(decFormat.format(cost) + "원");
         System.out.println();
     }
 
@@ -61,18 +63,18 @@ public class OutputView {
             System.out.println(NONE);
         }
         if (sale_list[0] != 0) {
-            System.out.println(DDAY_SALE + sale_list[0] + "원");
+            System.out.println(DDAY_SALE + decFormat.format(sale_list[0]) + "원");
         }
         if (sale_list[1] != 0 && isWeekdays) {
-            System.out.println(WEEKDAY_SALE + sale_list[1] + "원");
+            System.out.println(WEEKDAY_SALE + decFormat.format(sale_list[1]) + "원");
         } else if (sale_list[1] != 0 && !isWeekdays) {
-            System.out.println(WEEKEND_SALE + sale_list[1] + "원");
+            System.out.println(WEEKEND_SALE + decFormat.format(sale_list[1]) + "원");
         }
         if (sale_list[2] != 0) {
-            System.out.println(SPECIAL_SALE + sale_list[2] + "원");
+            System.out.println(SPECIAL_SALE + decFormat.format(sale_list[2]) + "원");
         }
         if (sale_list[3] != 0) {
-            System.out.println(GIFT_EVENT + sale_list[3] + "원");
+            System.out.println(GIFT_EVENT + decFormat.format(sale_list[3]) + "원");
         }
         System.out.println();
     }
@@ -83,14 +85,14 @@ public class OutputView {
             total += sale;
         }
         System.out.println(TOTAL_BENEFIT);
-        System.out.println(((-1) * total) + "원");
+        System.out.println(decFormat.format((-1) * total) + "원");
         System.out.println();
     }
 
     public static void printSaledCost(int cost, int[] sale_list) {
         int sale = sale_list[0] + sale_list[1] + sale_list[2];
         System.out.println(EXPECTED_COST);
-        System.out.println((cost - sale) + "원");
+        System.out.println(decFormat.format(cost - sale) + "원");
         System.out.println();
     }
 

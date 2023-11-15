@@ -7,7 +7,7 @@ public enum Badge {
 
     private final String name;
 
-    private Badge(String name){
+    private Badge(String name) {
         this.name = name;
     }
 

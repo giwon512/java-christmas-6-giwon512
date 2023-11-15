@@ -90,7 +90,7 @@ public class Order {
 
     public int validateMenuCount(String count) {
         for (char c : count.toCharArray()) {
-            if(c < 48 || c > 57) {
+            if (c < 48 || c > 57) {
                 return 0;
             }
         }

@@ -99,7 +99,7 @@ public class OutputView {
     public static void printEventBadge(int[] sale_list) {
         int total_sale = sale_list[0] + sale_list[1] + sale_list[2] + sale_list[3];
         System.out.println(EVENT_BADGE);
-        if (total_sale < 5000){
+        if (total_sale < 5000) {
             System.out.println(NONE);
         } else if (total_sale >= 20000) {
             System.out.println(Badge.SANTA.getName());

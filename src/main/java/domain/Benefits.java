@@ -93,15 +93,15 @@ public class Benefits {
         return 0;
     }
 
-    private int giftEvent(int cost){
-        if (cost >= 120000){
+    private int giftEvent(int cost) {
+        if (cost >= 120000) {
             return 25000;
         }
         return 0;
     }
 
-    private boolean checkDate(int visitDay){
-        if (WEEKEND.contains(visitDay)){
+    private boolean checkDate(int visitDay) {
+        if (WEEKEND.contains(visitDay)) {
             return false;
         }
         return true;

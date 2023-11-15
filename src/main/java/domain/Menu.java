@@ -8,12 +8,13 @@ public enum Menu {
 
     private final int price;
     private final String name;
-    private Menu(String name, int price){
+
+    private Menu(String name, int price) {
         this.name = name;
         this.price = price;
     }
 
-    public int getPrice(){
+    public int getPrice() {
         return price;
     }
 
